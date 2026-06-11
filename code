@@ -1,0 +1,22 @@
+def countSort(arr):
+    n = len(arr)
+
+    max_key = max(int(x[0]) for x in arr)
+    buckets = [[] for _ in range(max_key + 1)]
+
+    for i, (x, s) in enumerate(arr):
+        if i < n // 2:
+            s = "-"
+        buckets[int(x)].append(s)
+
+    result = []
+    for bucket in buckets:
+        result.extend(bucket)
+
+    print(" ".join(result))
+
+
+n = int(input())
+arr = [input().split() for _ in range(n)]
+
+countSort(arr)
